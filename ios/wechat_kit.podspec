@@ -10,7 +10,7 @@ current_dir = Dir.pwd
 calling_dir = File.dirname(__FILE__)
 project_dir = calling_dir.slice(0..(calling_dir.index('/.symlinks')))
 flutter_project_dir = calling_dir.slice(0..(calling_dir.index('/ios/.symlinks')))
-cfg = YAML.load_file(File.join(flutter_project_dir, 'pubspec.yaml'))
+cfg = YAML.load_file(File.join(flutter_project_dir, 'pubspec.yaml'), aliases: true)
 if cfg['wechat_kit'] && cfg['wechat_kit']['ios'] == 'no_pay'
     wechat_kit_subspec = 'no_pay'
 else
